@@ -24,9 +24,9 @@ Current version with no errors
 
 ## Description of files included in this repository
 
-- **entertainment_center.py**: Initialiates, with real examples of movies, the media data and it creates the Movie Trailer Website.
-- **media.py**: Defines the data structures in order to store movies, including among others movie title, poster URL and a YouTube link to the movie trailer. 
-- **fresh_tomatoes.py**: This file contains the open_movies_page() function that will take in a list of movies and generate an HTML file including this content, producing a website to showcase your favorite movies. Source Code cloned from [here](https://github.com/adarsh0806/ud036_StarterCode/blob/master/fresh_tomatoes.py)
+- [**entertainment_center.py**](https://github.com/crislae/nd_Movie_Trailer_Website/blob/master/entertainment_center.py): Initialiates, with real examples of movies, the media data and it creates the Movie Trailer Website.
+- [**media.py**](https://github.com/crislae/nd_Movie_Trailer_Website/blob/master/media.py): Defines the data structures in order to store movies, including among others movie title, poster URL and a YouTube link to the movie trailer. 
+- [**fresh_tomatoes.py**](https://github.com/crislae/nd_Movie_Trailer_Website/blob/master/fresh_tomatoes.py): This file contains the open_movies_page() function that will take in a list of movies and generate an HTML file including this content, producing a website to showcase your favorite movies. Source Code cloned from [here](https://github.com/adarsh0806/ud036_StarterCode/blob/master/fresh_tomatoes.py)
 
 ## Licence 
 
