@@ -1,10 +1,12 @@
 # -*- coding: cp1252 -*-
 """
-    Title:	    "entertainment_center.py" Nanodegree project: Movie Trailer Website
+    Title:	        "entertainment_center.py" Nanodegree project: Movie Trailer Website
     Author:         crislae @github
     Content:        Initialiates, with real examples of movies, the Media Data and it
                     creates the movie trailer website.
-    Status:	    to be submitted and evaluated - nanodegree Full Stack Web Developer
+                    The movie pictures URLs and the videos URLs have been obtained from the Internet. 
+                    Videos URLs from Youtube, pictures URLs from wikimedia. 
+    Status:	        to be submitted and evaluated - nanodegree Full Stack Web Developer
     Created:	    01-Jul-2017
     Post-History:   09-Jul-2017
 """
@@ -169,7 +171,7 @@ movies = [
 fresh_tomatoes.open_movies_page(movies)
 
 print("Website created")
-print("© 2017 crislae ")
+print("Â© 2017 crislae ")
 
 
 #print(media.Movie.__doc__)
