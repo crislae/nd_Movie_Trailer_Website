@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Project: Movie Trailer Website</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Project: Movie Trailer Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="6b5RoI-jeGI" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Raiders_of_the_Lost_Ark.jpg" width="220" height="342">
+    <h3>Indiana Jones and the Raiders of the Lost Ark</h3>
+    <P>Indiana Jones first movie</P>
+    <P> 1h 55min | Action Adventure Fantasy | 1981 </P>
+    <P>* Parental Guidance, as some material may not be suitable for children</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="HOwWfns4qqw" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/10/Indiana_Jones_and_the_Temple_of_Doom_PosterB.jpg" width="220" height="342">
+    <h3>Indiana Jones and the Temple of Doom</h3>
+    <P>Indiana Jones second movie</P>
+    <P>1h 58min | Action Adventure Fantasy | 1984 </P>
+    <P>* Parental Guidance, as some material may not be suitable for children</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="0ZOcoxjeUYo" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/f/fc/Indiana_Jones_and_the_Last_Crusade_A.jpg" width="220" height="342">
+    <h3>Indiana Jones and the Last Crusade</h3>
+    <P>Indiana Jones third movie</P>
+    <P>2h 7min | Action Adventure Fantasy | 1989 </P>
+    <P>* Parental Guidance, as some material may not be suitable for children</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="4sj1MT05lAA" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3d/The_Lion_King_poster.jpg" width="220" height="342">
+    <h3>The Lion King</h3>
+    <P>The Lion King tells the story of Simba, a young lion who is to succeed his father, Mufasa, as King of the Pride Lands</P>
+    <P>1h 28min | Cartoons | 1994 </P>
+    <P>* General Audiences, with all ages admitted</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="gWLa6y7Z2TE" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/AatKoT2.jpg" width="220" height="342">
+    <h3>Aladdin</h3>
+    <P>The adventures of Aladdin, a poor street thief who spends his time stealing food from the marketplace in the city of Agrabah.</P>
+    <P>1h 30min | Cartoons | 1992 </P>
+    <P>* General Audiences, with all ages admitted</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="tRlzmyveDHE" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/Beautybeastposter.jpg" width="220" height="342">
+    <h3>Beauty and the Beast</h3>
+    <P>The Disney story about a beauty and a beast, animated and musical. The film is based on the fairy tale La Belle et la Bete...</P>
+    <P>1h 24min | Cartoons | 1991 </P>
+    <P>* General Audiences, with all ages admitted</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="hJ2j4oWdQtU" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/c6/The_Goonies.jpg" width="220" height="342">
+    <h3>The Goonies</h3>
+    <P>A group of kids set out on an adventure in search of pirate treasure...</P>
+    <P>1h 54min | Action Adventure | 1985 </P>
+    <P>* General Audiences, with all ages admitted</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="WNNUcHRiPS8" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/d/db/Princess_bride.jpg" width="220" height="342">
+    <h3>The Princess Bride</h3>
+    <P>Story about a farmhand named Westley who must rescue his true love Princess Buttercup from the odious Prince Humperdinck.</P>
+    <P>1h 38min | Action Adventure | 1987 </P>
+    <P>* General Audiences, with all ages admitted</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="2LnShmQ_hLc" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/d/d2/Back_to_the_Future.jpg" width="220" height="342">
+    <h3>Back to the Future </h3>
+    <P>Marty McFly is accidentally sent 30 years into the past in a time-traveling DeLorean invented by the scientist Doc Brown</P>
+    <P>1h 56min | Action Adventure | 1985 </P>
+    <P>* General Audiences, with all ages admitted</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="JjfBu2RZFHI" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/e/e8/Game_of_Thrones_Season_1.jpg" width="220" height="342">
+    <h3>Game of Thrones, S01E01: Winter Is Coming</h3>
+    <P>The series is based on A Game of Thrones, the first novel in the A Song of Ice and Fire series by George R. R. Martin</P>
+    <P>56min | Adventure | 2011- </P>
+    <P>* Parental Guidance-13, with parents strongly cautioned, as some material may not be suitable for children under 13</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="kPrW3Swrp4E" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/e/e8/Game_of_Thrones_Season_1.jpg" width="220" height="342">
+    <h3>Game of Thrones, S01E02: The Kingsroad </h3>
+    <P>The series is based on A Game of Thrones, the first novel in the A Song of Ice and Fire series by George R. R. Martin</P>
+    <P>56min | Adventure | 2011- </P>
+    <P>* Parental Guidance-13, with parents strongly cautioned, as some material may not be suitable for children under 13</P>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center"
+data-trailer-youtube-id="68KrOZgmXZw" data-toggle="modal"
+data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/e/e8/Game_of_Thrones_Season_1.jpg" width="220" height="342">
+    <h3>Game of Thrones, S01E03: Lord Snow </h3>
+    <P>The series is based on A Game of Thrones, the first novel in the A Song of Ice and Fire series by George R. R. Martin</P>
+    <P>56min | Adventure | 2011- </P>
+    <P>* Parental Guidance-13, with parents strongly cautioned, as some material may not be suitable for children under 13</P>
+</div>
+
+    </div>
+  </body>
+</html>
